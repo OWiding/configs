@@ -37,12 +37,12 @@ M.general = {
     ["<leader>n"] = { "<cmd> set nu! <CR>", "Toggle line number" },
     ["<leader>rn"] = { "<cmd> set rnu! <CR>", "Toggle relative number" },
     
-    -- wrap words
-    ["<leader>'"] = { "<cmd> ysiw' <CR>", "Wrap word in single quote"},
-    ["<leader>\""] = { "<cmd> ys$ <CR>", "Wrap word in double quote"},
-    ["<leader>)"] = { "<cmd> ysiw( <CR>", "Wrap word in parenthesis"},
-    ["<leader>}"] = { "<cmd> ysiw{ <CR>", "Wrap word in qurly bracket"},
-    ["<leader>]"] = { "<cmd> ysiw[ <CR>", "Wrap word in bracket"},
+    -- wrap words not working as it should
+    -- ["<leader>'"] = { "<cmd> ysiw' <CR>", "Wrap word in single quote"},
+    -- ["<leader>\""] = { "<cmd> ys$ <CR>", "Wrap word in double quote"},
+    -- ["<leader>)"] = { "<cmd> ysiw( <CR>", "Wrap word in parenthesis"},
+    -- ["<leader>}"] = { "<cmd> ysiw{ <CR>", "Wrap word in qurly bracket"},
+    -- ["<leader>]"] = { "<cmd> ysiw[ <CR>", "Wrap word in bracket"},
 
     -- Allow moving the cursor through wrapped lines with j, k, <Up> and <Down>
     -- http://www.reddit.com/r/vim/comments/2k4cbr/problem_with_gj_and_gk/
