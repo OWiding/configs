@@ -175,7 +175,7 @@ local default_plugins = {
 
       vim.g.mason_binaries_list = opts.ensure_installed
     end,
-  },
+  },  
   {
     "ray-x/go.nvim",
     dependencies = {  -- optional packages
@@ -199,6 +199,26 @@ local default_plugins = {
     config = function()
       require "plugins.configs.lspconfig"
     end,
+  },
+
+  -- Copilot
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup({
+        suggestion = {
+          auto_trigger = true,
+        }
+      })
+    end,
+   },
+   {
+    "zbirenbaum/copilot-cmp",
+    config = function ()
+      require("copilot_cmp").setup()
+    end
   },
 
   -- load luasnips + cmp related in insert mode only
@@ -234,6 +254,7 @@ local default_plugins = {
 
       -- cmp sources plugins
       {
+        "zbirenbaum/copilot-cmp",
         "saadparwaiz1/cmp_luasnip",
         "hrsh7th/cmp-nvim-lua",
         "hrsh7th/cmp-nvim-lsp",

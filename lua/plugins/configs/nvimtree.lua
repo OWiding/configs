@@ -33,7 +33,7 @@ local options = {
       resize_window = true,
     },
   },
-
+  
   renderer = {
     root_folder_label = false,
     highlight_git = false,

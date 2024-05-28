@@ -1,4 +1,7 @@
-local cmp = require "cmp"
+local cmp_status_ok, cmp = pcall(require, "cmp")
+if not cmp_status_ok then
+	return
+end
 
 dofile(vim.g.base46_cache .. "cmp")
 
@@ -9,6 +12,11 @@ local field_arrangement = {
   atom = { "kind", "abbr", "menu" },
   atom_colored = { "kind", "abbr", "menu" },
 }
+
+local check_backspace = function()
+	local col = vim.fn.col(".") - 1
+	return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
+end
 
 local formatting_style = {
   -- default fields order i.e completion word + item.kind + item.kind icons
@@ -80,10 +88,14 @@ local options = {
       select = true,
     },
     ["<Tab>"] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_next_item()
+      if require("copilot.suggestion").is_visible() then
+				require("copilot.suggestion").accept()
+      elseif cmp.visible() then
+        cmp.select_next_item() 
       elseif require("luasnip").expand_or_jumpable() then
         vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true), "")
+      elseif check_backspace() then
+				fallback()
       else
         fallback()
       end
@@ -105,6 +117,7 @@ local options = {
     }),
   },
   sources = {
+    { name = "copilot" },
     { name = "nvim_lsp" },
     { name = "luasnip" },
     { name = "buffer" },

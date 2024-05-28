@@ -6,7 +6,7 @@ local plugins = {
         "gopls",
         "typescript-language-server",
         "eslint-lsp",
-        "nviḿ-surround",
+        "nvim-surround",
         "prettier",
       },
     },
