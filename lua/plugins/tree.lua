@@ -1,0 +1,19 @@
+return {
+  "nvim-tree/nvim-tree.lua",
+  dependencies = { "nvim-tree/nvim-web-devicons" },
+  cmd = { "NvimTreeToggle", "NvimTreeFocus" },
+  init = function()
+    vim.g.loaded_netrw = 1
+    vim.g.loaded_netrwPlugin = 1
+  end,
+  keys = {
+    { "<leader>e", "<cmd>NvimTreeToggle<CR>", desc = "File explorer" },
+  },
+  opts = {
+    view = { width = 35 },
+    renderer = { group_empty = true },
+    filters = { dotfiles = false },
+    git = { enable = true },
+    actions = { open_file = { quit_on_open = true } },
+  },
+}
