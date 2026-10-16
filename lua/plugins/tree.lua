@@ -14,6 +14,7 @@ return {
     renderer = { group_empty = true },
     filters = { dotfiles = false },
     git = { enable = true },
+    update_focused_file = { enable = true, update_root = false },
     actions = { open_file = { quit_on_open = true } },
   },
 }

@@ -13,9 +13,14 @@ map("n", "<leader>x", "<cmd>bdelete<CR>", { desc = "Close buffer" })
 map("n", "<leader>X", "<cmd>bdelete!<CR>", { desc = "Close buffer without saving" })
 
 map("n", "<C-h>", "<C-w>h", { desc = "Window left" })
-map("n", "<C-j>", "<C-w>j", { desc = "Window down" })
+map("n", "<C-j>", "<C-w>j",  { desc = "Window down" })
 map("n", "<C-k>", "<C-w>k", { desc = "Window up" })
 map("n", "<C-l>", "<C-w>l", { desc = "Window right" })
+
+map("n", "<C-Up>", "<cmd>resize +2<CR>", { desc = "Increase window height" })
+map("n", "<C-Down>", "<cmd>resize -2<CR>", { desc = "Decrease window height" })
+map("n", "<C-Left>", "<cmd>vertical resize -2<CR>", { desc = "Decrease window width" })
+map("n", "<C-Right>", "<cmd>vertical resize +2<CR>", { desc = "Increase window width" })
 
 map("n", "<leader>gg", function()
   vim.cmd("tabnew | terminal lazygit")

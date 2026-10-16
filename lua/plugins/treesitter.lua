@@ -8,6 +8,7 @@ return {
 
     ts.install({
       "bash",
+      "c_sharp",
       "css",
       "go",
       "gomod",

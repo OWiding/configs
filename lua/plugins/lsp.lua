@@ -9,6 +9,7 @@ return {
     opts = {
       ensure_installed = {
         "bashls",
+        "csharp_ls",
         "cssls",
         "eslint",
         "gopls",

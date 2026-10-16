@@ -7,6 +7,7 @@ return {
       { "<leader>gk", function() require("gitsigns").nav_hunk("prev") end, desc = "Previous git change" },
     },
     opts = {
+      current_line_blame = true,
       on_attach = function(bufnr)
         local gs = require("gitsigns")
 
@@ -20,6 +21,7 @@ return {
         map("n", "<leader>hr", gs.reset_hunk, "Reset hunk")
         map("n", "<leader>hp", gs.preview_hunk, "Preview hunk")
         map("n", "<leader>hb", gs.blame_line, "Blame line")
+        map("n", "<leader>hB", gs.blame, "Blame file")
         map("n", "<leader>hd", gs.diffthis, "Diff this")
       end,
     },
